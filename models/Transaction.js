@@ -1,5 +1,7 @@
-const { Model, DataTypes, Transaction } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
+
+class Transaction extends Model {}
 
 Transaction.init(
   {
@@ -18,3 +20,5 @@ Transaction.init(
     modelName: "transaction",
   }
 );
+
+module.exports = Transaction;
