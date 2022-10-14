@@ -11,14 +11,16 @@ class User extends Model {
 User.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      // UUID is the account / account#
+      type: DataTypes.UUID,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      defaultValue: DataTypes.UUIDV4,
     },
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -26,6 +28,10 @@ User.init(
       validate: {
         len: [8],
       },
+    },
+    balance: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true,
     },
   },
   {
@@ -43,10 +49,10 @@ User.init(
       },
     },
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "user",
+    // timestamps: false,
+    // freezeTableName: true,
+    // underscored: true,
+    // modelName: "user",
   }
 );
 
