@@ -11,6 +11,14 @@ Account.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    credit: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true,
+    },
+    debit: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true,
+    },
     balance: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: true,
