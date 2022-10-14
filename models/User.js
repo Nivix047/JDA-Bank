@@ -20,6 +20,7 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -27,6 +28,10 @@ User.init(
       validate: {
         len: [8],
       },
+    },
+    balance: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: true,
     },
   },
   {
@@ -44,10 +49,10 @@ User.init(
       },
     },
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "user",
+    // timestamps: false,
+    // freezeTableName: true,
+    // underscored: true,
+    // modelName: "user",
   }
 );
 

@@ -6,10 +6,10 @@ class Transaction extends Model {}
 Transaction.init(
   {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      defaultValue: DataTypes.UUIDV4,
     },
     transaction_date: {
       type: DataTypes.DATE,
@@ -23,14 +23,14 @@ Transaction.init(
     amount: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-    }
+    },
   },
   {
     sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "transaction",
+    // timestamps: false,
+    // freezeTableName: true,
+    // underscored: true,
+    // modelName: "transaction",
   }
 );
 
