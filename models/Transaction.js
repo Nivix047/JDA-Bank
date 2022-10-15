@@ -16,6 +16,7 @@ Transaction.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    // to track credits
     recipient: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,6 +25,14 @@ Transaction.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
+    // to track debits
+    // user_id: {
+    //   type: DataTypes.UUID,
+    //   references: {
+    //     model: 'user',
+    //     key: 'id',
+    //   },
+    // },
   },
   {
     sequelize,
