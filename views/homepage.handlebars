@@ -1,7 +1,22 @@
+<form class="transaction-form m-2">
+  <div class="row border border-dark">
+    <div class="col border border-dark bg-dark text-white">Transfer
+    </div>
+    <div class="mb-3">
+      <label for="recipient" class="form-label">Transfer to: </label>
+      <input type="text" class="form-control" id="recipient" />
+    </div>
+    <div class="mb-3">
+      <label for="transfer-amount" class="form-label">Amount: </label>
+      <input type="number" class="form-control" id="transfer-amount" />
+    </div>
+    <div class="form-group mb-3">
+      <button type="submit" class="btn btn-secondary w-100">Transfer</button>
+    </div>
+  </div>
+</form>
+
 <div>{{user.username}}</div>
 <div>{{user.balance}}</div>
 
-<div>
-  {{transaction.recipient}}
-  {{transaction.amount}}
-</div>
+<script src="/js/transaction.js"></script>
