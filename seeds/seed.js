@@ -1,8 +1,8 @@
 const sequelize = require("../config/connection");
-const { User, Transaction } = require("../models");
+const { User } = require("../models");
 
 const userData = require("./userData.json");
-const transactionData = require("./transactionData.json");
+// const transactionData = require("./transactionData.json");
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
@@ -12,13 +12,13 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const transaction of transactionData) {
-    await Transaction.create({
-      ...transaction,
-      // Not sure if this works
-      // user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  // for (const transaction of transactionData) {
+  //   await Transaction.create({
+  //     ...transaction,
+  //     // Not sure if this works
+  //     // user_id: users[Math.floor(Math.random() * users.length)].id,
+  //   });
+  // }
 
   process.exit(0);
 };
