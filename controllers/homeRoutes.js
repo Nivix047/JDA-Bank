@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Account, Transaction } = require("../models");
+const { User, Transaction } = require("../models");
 const withAuth = require("../utils/auth");
 
 // Render login form
@@ -61,6 +61,29 @@ router.get("/", withAuth, async (req, res) => {
     // Pass serialized data and session flag into template
     res.render("transaction", {
       transactions,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Render user info
+router.get("/user/:id", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    // Serialize data so the template can read it
+    const user = userData.get({ plain: true });
+    console.log("----user----");
+    console.log(user);
+    // Pass serialized data and session flag into template
+    res.render("homepage", {
+      user,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
