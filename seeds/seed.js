@@ -16,7 +16,7 @@ const seedDatabase = async () => {
     await Transaction.create({
       ...transaction,
       // Not sure if this works
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      // user_id: users[Math.floor(Math.random() * users.length)].id,
     });
   }
 

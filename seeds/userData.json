@@ -1,17 +1,26 @@
 [
   {
     "username": "James",
+    "id": 1,
     "password": "test1111",
-    "balance": 10000
+    "balance": 100000
   },
   {
     "username": "Daniel",
+    "id": 2,
     "password": "test2222",
-    "balance": 10000
+    "balance": 100000
   },
   {
     "username": "Andrew",
+    "id": 3,
     "password": "test3333",
-    "balance": 10000
+    "balance": 100000
+  },
+  {
+    "username": "Mike",
+    "id": 4,
+    "password": "test4444",
+    "balance": 100000
   }
 ]
