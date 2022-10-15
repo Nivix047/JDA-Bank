@@ -7,7 +7,10 @@ const Transaction = require("./Transaction");
 //   onDelete: "CASCADE",
 // });
 
-User.hasMany(Transaction);
+User.hasMany(Transaction, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
 
 // Account.belongsTo(User, {
 //   foreignKey: "user_id",
@@ -25,6 +28,9 @@ User.hasMany(Transaction);
 //   onDelete: "CASCADE",
 // });
 
-Transaction.belongsTo(User);
+Transaction.belongsTo(User, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
 
 module.exports = { User, Transaction };
