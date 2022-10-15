@@ -1,27 +1,6 @@
 [
   {
-    "amount": "100"
-  },
-  {
-    "recipient": "James",
-    "amount": 5000
-  },
-  {
-  
-    "recipient": "Daniel",
-    "amount": 5000
-  },
-  {
- 
-    "recipient": "Andrew",
-    "amount": 5000
-  },
-  {
- 
-    "recipient": "Mike",
-    "amount": 5000
+    "amount": "100",
+    "id": 1
   }
-
-
- 
 ]
