@@ -1,36 +1,70 @@
-<div class="signup-form">
-  <div class="row">
-    <div class="col">
-      <h1 class="p-5 display-1">
-          When
-          <!-- Green highlight effect -->
-          <span class="highlight">banking</span>
-          meets<br />
-          <span class="highlight">minimalist</span>
-      </h1>
-    </div>
-    <div class="col d-flex justify-content-center login-signup-form">
-      <form class="signup-form m-1">
-  <div class="row">
-    <div class="col display-6">Welcome!
-    </div>
-    <div class="mb-3">
-      <label for="username-signup" class="form-label"></label>
-      <input type="text" class="form-control" placeholder="Username" id="username-signup" />
-    </div>
-    <div class="mb-3">
-      <label for="password-signup" class="form-label"></label>
-      <input type="password" class="form-control" placeholder="Password" id="password-signup" />
-    </div>
-    <div class="form-group mb-3">
-      <button type="submit" class="btn btn-success w-100">Sign up</button>
-    </div>
-    <div class="form-group">
-      <a href="/login" class="text-decoration-none signup-login-href text-success">Login instead</a>
-    </div>
-  </div>
-</form>
-    </div>
-  </div>
+<div class="row justify-content-center">
+  <div class="col-2 text-left transaction-form"><h3>Hi,
+      {{user.username}}
+      !
+    </h3>
+    <h4>
+      <span>Balance:</span>
+      <span>${{user.balance}}</span>
+    </h4>
+    <form class="transaction-form m-2">
+      <div class="row">
+        <div class="mb-3">
+          <label for="recipient" class="form-label"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="recipient"
+            placeholder="Transfer to"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="transfer-amount" class="form-label"></label>
+          <input
+            type="number"
+            class="form-control"
+            id="transfer-amount"
+            placeholder="Amount"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <button type="submit" class="btn btn-success w-100">Transfer</button>
+        </div>
+      </div>
+    </form>
 
-  <script src="/js/signup.js"></script>
+  </div>
+  <div class="col-8 text-center"><div class="container">
+    <div class="container">
+  <div class="row w-25 m-4">
+    <div class="col m-2" id="transaction-href">
+      Transactions
+    </div>
+    <div class="col m-2" id="chart-href">
+      Chart
+    </div>
+  </div>
+  <div class="row transaction-list m-4">
+    <div class="col">
+      You paid James Sung $100
+    </div>
+    <div class="col">
+      on 10/16/22
+    </div></div>
+      <div class="row transaction-list m-4">
+    <div class="col">
+      You paid Andrew Hong $100
+    </div>
+    <div class="col">
+      on 10/16/22
+    </div></div>
+      <div class="row transaction-list m-4">
+    <div class="col">
+      Bob paid you $100
+    </div>
+    <div class="col">
+      on 10/16/22
+    </div></div>
+</div>
+
+<script src="/js/transaction.js"></script>

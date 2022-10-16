@@ -1,6 +1,6 @@
 :root {
   --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
-  --color-tertiary: #ff585f;
+  --color-tertiary-darker: #fd424b;
 }
 
 #navbar {
@@ -47,6 +47,39 @@
   background-image: var(--gradient-primary);
 }
 
+.transaction-form {
+  position: relative;
+}
+
+.transaction-form::after {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  border-radius: 25px;
+  background-image: var(--gradient-primary);
+}
+
+.transaction-list {
+  background-image: var(--gradient-primary);
+  border-radius: 25px;
+}
+
+#transaction-href {
+  background-color: var(--color-tertiary-darker);
+  border-radius: 25px;
+}
+
+#chart-href {
+  background-image: var(--gradient-primary);
+  border-radius: 25px;
+}
+
 /* .signup-login-href {
   border-radius: 25px;
-} */
+} */ ;
