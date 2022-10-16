@@ -1,5 +1,44 @@
 <div class="signup-form">
   <div class="row">
+    <div class="col">
+      <h1 class="p-5 display-1">
+          When
+          <!-- Green highlight effect -->
+          <span class="highlight">banking</span>
+          meets<br />
+          <span class="highlight">minimalist</span>
+      </h1>
+    </div>
+    <div class="col d-flex justify-content-center login-signup-form">
+      <form class="signup-form m-1">
+  <div class="row">
+    <div class="col display-6">Welcome!
+    </div>
+    <div class="mb-3">
+      <label for="username-signup" class="form-label"></label>
+      <input type="text" class="form-control" placeholder="Username" id="username-signup" />
+    </div>
+    <div class="mb-3">
+      <label for="password-signup" class="form-label"></label>
+      <input type="password" class="form-control" placeholder="Password" id="password-signup" />
+    </div>
+    <div class="form-group mb-3">
+      <button type="submit" class="btn btn-success w-100">Sign up</button>
+    </div>
+    <div class="form-group">
+      <a href="/login" class="text-decoration-none signup-login-href text-success">Login instead</a>
+    </div>
+  </div>
+</form>
+    </div>
+  </div>
+
+  <script src="/js/signup.js"></script>
+
+
+{{! Old codes }}
+{{! <div class="signup-form">
+  <div class="row">
     <div class="col text-center">
       INSERT PICTURE
     </div>
@@ -28,27 +67,4 @@
   </div>
 
 <script src="/js/signup.js"></script>
-
-{{! Old codes }}
- {{!-- <form class="signup-form m-2">
-  <div class="row border border-dark">
-    <div class="col border border-dark bg-dark text-white">Sign up
-    </div>
-    <div class="mb-3">
-      <label for="username-signup" class="form-label">Username</label>
-      <input type="text" class="form-control" id="username-signup" />
-    </div>
-    <div class="mb-3">
-      <label for="password-signup" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password-signup" />
-    </div>
-    <div class="form-group mb-3">
-      <button type="submit" class="btn btn-secondary w-100">Sign up</button>
-    </div>
-    <div class="form-group">
-      <a href="/login">Login instead</a>
-    </div>
-  </div>
-</form>
-
-<script src="/js/signup.js"></script> -- --}}
+ }}
