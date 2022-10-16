@@ -40,32 +40,31 @@ router.put("/", withAuth, async (req, res) => {
   }
 });
 
-// we need a put for recipient too ----------------------
+// We need a put for recipient too ----------------------
+//
+// router.put("/", withAuth, async (req, res) => {
+//   try {
+//     const updateBalance = await User.update(
+//       {
+//         balance: req.body.balance,
+//       },
+//       {
+//         where: {
+//           id: req.session.user_id,
+//           username: req.body.recipient,
+//         },
+//       }
+//     );
 
-router.put("/:id", withAuth, async (req, res) => {
-  try {
-    const updateBalance = await User.update(
-      {
-        balance: balance - req.body.balance,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-        // ...req.body,
-        // user_id: req.session.user_id,
-      }
-    );
+//     if (!updateBalance) {
+//       res.status(404).json({ message: "No Account found with this id!" });
+//       return;
+//     }
 
-    if (!updateBalance) {
-      res.status(404).json({ message: "No Account found with this id!" });
-      return;
-    }
-
-    res.status(200).json(updateBalance);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+//     res.status(200).json(updateBalance);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 module.exports = router;
