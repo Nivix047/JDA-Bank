@@ -66,6 +66,7 @@ router.get("/", withAuth, async (req, res) => {
 //     // Pass serialized data and session flag into
 
 // Testing views
+
 router.get("/test", (req, res) => {
   res.render("test");
 });
