@@ -12,11 +12,12 @@ const transactionFormHandler = async (event) => {
       body: JSON.stringify({ recipient, amount }),
       headers: { "Content-Type": "application/json" },
     });
+
     if (response.ok) {
       // If successful, redirect the browser to the profile page
       document.location.replace("/");
     } else {
-      alert("Failed to log in.");
+      alert("Failed to transfer.");
     }
   }
 };

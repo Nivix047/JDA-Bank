@@ -34,6 +34,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
-sequelize.sync({ force: true }).then(() => {
+// original
+// sequelize.sync({ force: true }).then(() => {
+//   app.listen(PORT, () => console.log("Now listening"));
+// });
+
+// testing database wipeout
+sequelize.sync({ alter: true,
+  force: false, }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });

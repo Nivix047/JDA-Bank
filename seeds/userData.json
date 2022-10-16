@@ -22,5 +22,17 @@
     "id": 4,
     "password": "test4444",
     "balance": 100000
+  },
+  {
+    "username": "Charles",
+    "id": 5,
+    "password": "test5555",
+    "balance": 100000
+  },
+  {
+    "username": "Joe",
+    "id": 6,
+    "password": "test6666",
+    "balance": 100000
   }
 ]

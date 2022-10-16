@@ -25,15 +25,21 @@ Transaction.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
-    // to track debits
     // user_id: {
     //   type: DataTypes.UUID,
     //   references: {
     //     model: 'user',
     //     key: 'id',
     //   },
+    },
+    // user_balance: {
+    //   type: DataTypes.DECIMAL,
+    //   references: {
+    //     model: 'user',
+    //     key: 'balance',
+    //   },
     // },
-  },
+  // },
   {
     sequelize,
     // timestamps: false,
