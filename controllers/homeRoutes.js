@@ -66,11 +66,8 @@ router.get("/", withAuth, async (req, res) => {
 //     // Pass serialized data and session flag into
 
 // Testing views
-// router.get("/", (req, res) => {
-//   // If the user is alrady logged in, redirect the request to another route
-//   if (req.session.logged_in) {
-//     res.redirect("/");
-//     return;
-//   }
+router.get("/test", (req, res) => {
+  res.render("test");
+});
 
 module.exports = router;
