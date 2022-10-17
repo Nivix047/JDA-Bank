@@ -2,7 +2,6 @@ const router = require("express").Router();
 const { User, Transaction } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-
 router.post("/", withAuth, async (req, res) => {
   try {
     const newTransaction = await Transaction.create({
@@ -26,7 +25,7 @@ router.post("/", withAuth, async (req, res) => {
 //     // UPDATE USER ACCOUNT
 
 //     // const newBalance = U
-  
+
 //     // User.update(
 //     //   {
 //     //     balance: req.body.amount,
@@ -43,12 +42,12 @@ router.post("/", withAuth, async (req, res) => {
 //   }
 // });
 
-// Update balance
+// Update balance of the sender
 router.put("/", withAuth, async (req, res) => {
   try {
     const updateBalance = await User.update(
       {
-        balance: req.body.amount,
+        balance: req.body.balance,
       },
       {
         where: {
@@ -62,38 +61,47 @@ router.put("/", withAuth, async (req, res) => {
       return;
     }
 
-    res.status(200).json(updateBalance);
+    res.status(200).json({ message: "Transfer completed!" });
   } catch (err) {
-    res.status(400).json(err);
+    res.status(400).json(err.message);
   }
 });
 
-
-
 // We need a put for recipient too ----------------------
-//
-// router.put("/", withAuth, async (req, res) => {
-//   try {
-//     const updateBalance = await User.update(
-//       {
-//         balance: req.body.balance,
-//       },
-//       {
-//         where: {
-//           username: req.body.recipient,
-//         },
-//       }
-//     );
 
-//     if (!updateBalance) {
-//       res.status(404).json({ message: "No Account found with this id!" });
-//       return;
-//     }
+router.put("/:username", withAuth, async (req, res) => {
+  try {
+    const recipientData = await User.findOne({
+      where: {
+        username: req.params.username,
+      },
+    });
 
-//     res.status(200).json(updateBalance);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+    const recipient = recipientData.get({ plain: true });
+
+    // Had to parseInt because of JSON Stringfication
+    let balance = parseInt(req.body.amount) + parseInt(recipient.balance);
+
+    const updateBalance = await User.update(
+      {
+        balance: balance,
+      },
+      {
+        where: {
+          username: req.params.username,
+        },
+      }
+    );
+
+    if (!updateBalance) {
+      res.status(404).json({ message: "No Account found with this id!" });
+      return;
+    }
+
+    res.status(200).json(updateBalance);
+  } catch (err) {
+    res.status(400).json(err.message);
+  }
+});
 
 module.exports = router;

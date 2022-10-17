@@ -8,6 +8,7 @@
       <span>${{user.balance}}</span>
     </h4>
     <form class="transaction-form m-2">
+      <input type="hidden" name="current-balance" value="{{user.balance}}" />
       <div class="row">
         <div class="mb-3">
           <label for="recipient" class="form-label"></label>
