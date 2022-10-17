@@ -31,11 +31,13 @@ router.get("/", withAuth, async (req, res) => {
       where: {
         id: req.session.user_id,
       },
+      // expecting an array of tables
+      include: [Transaction],
     });
 
     // Serialize data so the template can read it
     const user = userData.get({ plain: true });
-    console.log("----user----");
+    console.log("----user + transaction----");
     console.log(user);
     // Pass serialized data and session flag into template
     res.render("homepage", {

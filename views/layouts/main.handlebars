@@ -20,7 +20,7 @@
       </div>
    <nav class="navbar navbar-expand-lg navbar-light bg-light" if="mavbar" id="navbar">
     {{#if logged_in}}
-  <a class="navbar-brand logout btn">Logout</a>
+  <a class="navbar-brand logout btn" id="logout">Logout</a>
   {{else}}
    <a class="navbar-brand" href="/login" id="login">Login</a>
    {{/if}}
@@ -29,10 +29,13 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
+      {{#if logged_in}}
+      <a class="nav-item nav-link active" href="#">Transactions<span></span></a>
+      <a class="nav-item nav-link active" href="#">Chart</a>
+      {{/if}}
+      <a class="nav-item nav-link active" href="#">How JDA Works</a>
+      <a class="nav-item nav-link active" href="#">Security</a>
+      <a class="nav-item nav-link active" href="#">Contact Us</a>
   </div>
 </nav>
     </div>

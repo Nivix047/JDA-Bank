@@ -31,18 +31,18 @@ Transaction.init(
     //     model: 'user',
     //     key: 'id',
     //   },
-    },
-    // user_balance: {
-    //   type: DataTypes.DECIMAL,
-    //   references: {
-    //     model: 'user',
-    //     key: 'balance',
-    //   },
-    // },
+  },
+  // user_balance: {
+  //   type: DataTypes.DECIMAL,
+  //   references: {
+  //     model: 'user',
+  //     key: 'balance',
+  //   },
+  // },
   // },
   {
     sequelize,
-    // timestamps: false,
+    timestamps: false,
     // freezeTableName: true,
     // underscored: true,
     // modelName: "transaction",
