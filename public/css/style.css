@@ -71,6 +71,75 @@
   transform: scale(1.07, 1.05) skewX(-15deg);
 }
 
+#login {
+  position: relative;
+}
+
+#login::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #18272f;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+#login:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+#logout {
+  position: relative;
+}
+
+#logout::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #18272f;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+#logout:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: #18272f;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-item:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
 /* #transaction-href {
   background-color: var(--color-tertiary-darker);
   border-radius: 25px;
@@ -108,49 +177,3 @@
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease-in-out;
 } */
-
-#login {
-  position: relative;
-}
-
-#login::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  border-radius: 4px;
-  background-color: #18272f;
-  bottom: 0;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-#login:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-
-.nav-item {
-  position: relative;
-}
-
-.nav-item::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 4px;
-  border-radius: 4px;
-  background-color: #18272f;
-  bottom: 0;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-.nav-item:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}

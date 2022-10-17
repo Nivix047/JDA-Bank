@@ -62,25 +62,24 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// router.delete('/:id', async (req, res) => {
+//   try {
+//     const deleteUser = await User.destroy({
+//       where: {
+//         id: req.params.id,
+//         user_id: req.session.user_id,
+//       },
+//     });
 
-router.delete('/:id', async (req, res) => {
-  try {
-    const deleteUser = await User.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
+//     if (!deleteUser) {
+//       res.status(404).json({ message: 'No user found with this id!' });
+//       return;
+//     }
 
-    if (!deleteUser) {
-      res.status(404).json({ message: 'No user found with this id!' });
-      return;
-    }
-
-    res.status(200).json(deleteUser);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(deleteUser);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

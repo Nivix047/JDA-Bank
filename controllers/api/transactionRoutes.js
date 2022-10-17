@@ -2,46 +2,6 @@ const router = require("express").Router();
 const { User, Transaction } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-router.post("/", withAuth, async (req, res) => {
-  try {
-    const newTransaction = await Transaction.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-    res.status(200).json(newTransaction);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-// // TESTING UPDATING MULTIPLE MODELS------------------------
-// router.post("/", withAuth, async (req, res) => {
-//   try {
-//     const newTransaction = await Transaction.create({
-//       ...req.body,
-//       user_id: req.session.user_id,
-//     });
-
-//     // UPDATE USER ACCOUNT
-
-//     // const newBalance = U
-
-//     // User.update(
-//     //   {
-//     //     balance: req.body.amount,
-//     //   },
-//     //   {
-//     //     where: {
-//     //       id: req.session.user_id,
-//     //     },
-//     //   }
-//     // );
-//     res.status(200).json(newTransaction);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
-
 // Update balance of the sender
 router.put("/", withAuth, async (req, res) => {
   try {
@@ -67,8 +27,7 @@ router.put("/", withAuth, async (req, res) => {
   }
 });
 
-// We need a put for recipient too ----------------------
-
+// Update recipient's balance
 router.put("/:username", withAuth, async (req, res) => {
   try {
     const recipientData = await User.findOne({
@@ -101,6 +60,19 @@ router.put("/:username", withAuth, async (req, res) => {
     res.status(200).json(updateBalance);
   } catch (err) {
     res.status(400).json(err.message);
+  }
+});
+
+// Transaction front-end js can include a post to this route with all the info waiting: put put post // need to write the js tommorrow
+router.post("/", withAuth, async (req, res) => {
+  try {
+    const newTransaction = await Transaction.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    res.status(200).json(newTransaction);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 

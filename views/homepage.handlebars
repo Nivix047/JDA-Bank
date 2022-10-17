@@ -33,39 +33,19 @@
         </div>
       </div>
     </form>
-
+ 
   </div>
   <div class="col-8 text-center m-4"><div class="container">
-    {{!-- <div class="container"> --}}
-  {{!-- <div class="row w-25 m-4">
-    <div class="col m-2" id="transaction-href">
-      Transactions
-    </div>
-    <div class="col m-2" id="chart-href">
-      Chart
-    </div>
-  </div> --}}
+    {{#each user.Transactions }}
   <div class="row transaction-list m-4">
     <div class="col">
-      You paid James Sung $100
+      You paid {{recipient}} ${{amount}}
     </div>
     <div class="col">
-      on 10/16/22
-    </div></div>
-      <div class="row transaction-list m-4">
-    <div class="col">
-      You paid Andrew Hong $100
+      on {{format_date transaction_date}}
     </div>
-    <div class="col">
-      on 10/16/22
-    </div></div>
-      <div class="row transaction-list m-4">
-    <div class="col">
-      Bob paid you $100
     </div>
-    <div class="col">
-      on 10/16/22
-    </div></div>
+    {{/each}}
 </div>
 
 <script src="/js/transaction.js"></script>
