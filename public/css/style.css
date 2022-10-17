@@ -1,6 +1,7 @@
 :root {
   --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
   --color-tertiary-darker: #fd424b;
+  --color-secondary-darker: #ffbb00;
 }
 
 #navbar {
@@ -67,18 +68,18 @@
 
 .transaction-list {
   background-image: var(--gradient-primary);
-  border-radius: 25px;
+  transform: scale(1.07, 1.05) skewX(-15deg);
 }
 
-#transaction-href {
+/* #transaction-href {
   background-color: var(--color-tertiary-darker);
   border-radius: 25px;
 }
 
 #chart-href {
-  background-image: var(--gradient-primary);
+  background-color: var(--color-secondary-darker);
   border-radius: 25px;
-}
+} */
 
 /* .signup-login-href {
   border-radius: 25px;
