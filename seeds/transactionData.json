@@ -3,42 +3,42 @@
     "id": 1,
     "transaction_date": "2022-10-16 19:40:45",
     "recipient": "Andrew",
-    "amount": "100",
+    "credit": 1,
     "user_id": 6
   },
   {
     "id": 2,
     "transaction_date": "2022-10-16 19:40:45",
     "recipient": "Daniel",
-    "amount": "150",
+    "credit": 1,
     "user_id": 5
   },
   {
     "id": 3,
     "transaction_date": "2022-10-16 19:40:45",
     "recipient": "James",
-    "amount": "200",
+    "credit": 1,
     "user_id": 4
   },
   {
     "id": 4,
     "transaction_date": "2022-10-16 19:40:45",
     "recipient": "Mike",
-    "amount": "250",
+    "credit": 1,
     "user_id": 3
   },
   {
     "id": 5,
     "transaction_date": "2022-10-16 19:40:45",
     "recipient": "Charles",
-    "amount": "200",
+    "credit": 1,
     "user_id": 2
   },
   {
     "id": 6,
     "transaction_date": "2022-10-16 19:40:45",
     "recipient": "Joe",
-    "amount": "250",
+    "credit": 1,
     "user_id": 1
   }
 ]
