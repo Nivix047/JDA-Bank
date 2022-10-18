@@ -105,4 +105,15 @@ router.post("/:username", withAuth, async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  const dbRes = await Transaction.findAll({
+    where: {
+      user_id: req.session.user_id,
+    },
+  });
+
+  const transactions = dbRes.map((tx) => tx.get({ plain: true }));
+  res.json(transactions);
+});
+
 module.exports = router;
