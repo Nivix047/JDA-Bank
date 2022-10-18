@@ -21,9 +21,17 @@ Transaction.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    amount: {
+    // amount: {
+    //   type: DataTypes.DECIMAL,
+    //   allowNull: false,
+    // },
+    credit: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
+      // allowNull: false,
+    },
+    debit: {
+      type: DataTypes.DECIMAL,
+      // allowNull: false,
     },
     // user_id: {
     //   type: DataTypes.UUID,
