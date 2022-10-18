@@ -39,8 +39,21 @@ const transactionFormHandler = async (event) => {
       alert("Failed to transfer.");
     }
   }
-};
 
+  // Sends transaction
+  const response = await fetch("api/transactions", {
+    method: "POST",
+    body: JSON.stringify({ recipient, amount }),
+    headers: { "Content-Type": "application/json" },
+  });
+
+  if (response.ok) {
+    // If successful, redirect the browser to the profile page
+    document.location.replace("/");
+  } else {
+    alert("Failed to transfer.");
+  }
+};
 document
   .querySelector(".transaction-form")
   .addEventListener("submit", transactionFormHandler);
