@@ -1,5 +1,78 @@
-<div class="row justify-content-center">
-  <div class="col-2 text-left transaction-form"><h3>Hi,
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <form class="transaction-form p-4">
+        <h3>Hi,
+          {{user.username}}
+          !
+        </h3>
+        <h4>
+          <span>Balance:</span>
+          <span>${{user.balance}}</span>
+        </h4>
+        <input type="hidden" name="current-user" value="{{user.username}}" />
+        <input type="hidden" name="current-balance" value="{{user.balance}}" />
+        <div class="row">
+          <div class="mb-3">
+            <label for="recipient" class="form-label"></label>
+            <input
+              type="text"
+              class="form-control"
+              id="recipient"
+              placeholder="Transfer to"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="transfer-amount" class="form-label"></label>
+            <input
+              type="number"
+              class="form-control"
+              id="transfer-amount"
+              placeholder="Amount"
+            />
+          </div>
+          <div class="form-group mb-3">
+            <button
+              type="submit"
+              class="btn btn-success w-100"
+            >Transfer</button>
+          </div>
+        </div>
+      </form></div>
+    <div class="col-8 text-center">
+      <div class="col">
+        {{#each user.Transactions}}
+          <div class="m-4">
+            {{#if debit}}
+              <div id="debit-transaction">
+                You paid
+                {{recipient}}
+                ${{debit}}
+                on
+                {{format_date transaction_date}}
+              </div>
+            {{else}}
+              <div id="credit-transaction">
+                {{recipient}}
+                paid you ${{credit}}
+                on
+                {{format_date transaction_date}}
+              </div>
+            {{/if}}
+          </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/js/transaction.js"></script>
+
+{{! Old codes }}
+{{!-- <div class="row justify-content-center">
+  <div class="col-2 text-left transaction-form">
+    <form class="transaction-form m-2">
+      <h3>Hi,
       {{user.username}}
       !
     </h3>
@@ -7,7 +80,6 @@
       <span>Balance:</span>
       <span>${{user.balance}}</span>
     </h4>
-    <form class="transaction-form m-2">
        <input type="hidden" name="current-user" value="{{user.username}}" />
       <input type="hidden" name="current-balance" value="{{user.balance}}" />
       <div class="row">
@@ -34,26 +106,26 @@
         </div>
       </div>
     </form>
- 
   </div>
-  <div class="col-8 text-center m-4"><div class="container">
-    {{#each user.Transactions }}
-  <div class="row transaction-list m-4">
-    <div class="col">
+  <div class="col-8 text-center m-4">
+    {{#each user.Transactions}}
+    <div class="m-4">
       {{#if debit}}
-      You paid {{recipient}} ${{debit}}
+      <div id="debit-transaction">
+      You paid {{recipient}} ${{debit}} on
+      {{format_date transaction_date}}
+      </div>
       {{else}}
-      You received from {{recipient}} ${{credit}}
+      <div id="credit-transaction">
+      {{recipient}} paid you ${{credit}} on
+      {{format_date transaction_date}}
+      </div>
       {{/if}}
     </div>
-    <div class="col">
-      on {{format_date transaction_date}}
-    </div>
-    </div>
     {{/each}}
-</div>
+</div> --}}
 
-<script src="/js/transaction.js"></script>
+{{! <script src="/js/transaction.js"></script> }}
 
 {{! Old codes }}
 {{!-- <div class="row justify-content-center">

@@ -1,11 +1,6 @@
 :root {
   --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
   --color-tertiary-darker: #fd424b;
-  --color-secondary-darker: #ffbb00;
-}
-
-#navbar {
-  text-align: right;
 }
 
 #navbar {
@@ -30,12 +25,12 @@
   background-image: var(--gradient-primary);
 }
 
-.login-signup-form {
+/* .login-signup-form {
   position: relative;
-}
+} */
 
-.login-signup-form::after {
-  display: block;
+.login-signup-form {
+  /* display: block;
   content: "";
   position: absolute;
   bottom: 0;
@@ -44,31 +39,56 @@
   width: 100%;
   z-index: -1;
   opacity: 0.7;
-  border-radius: 25px;
+  border-radius: 25px; */
   background-image: var(--gradient-primary);
+  border-radius: 25px;
 }
 
 .transaction-form {
-  position: relative;
+  background: var(--gradient-primary);
+  border-radius: 25px;
 }
 
-.transaction-form::after {
-  display: block;
+#credit-transaction {
+  position: relative;
+  /* width: 30%; */
+  padding: 1em 1.5em;
+  margin: 2em auto;
+  color: black;
+  background: var(--gradient-primary);
+}
+
+#credit-transaction:before {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  opacity: 0.7;
-  border-radius: 25px;
-  background-image: var(--gradient-primary);
+  top: 0;
+  right: 0;
+  border-width: 0 16px 16px 0;
+  border-style: solid;
+  border-color: #379f4e #fff;
 }
 
-.transaction-list {
-  background-image: var(--gradient-primary);
-  transform: scale(1.07, 1.05) skewX(-15deg);
+#debit-transaction {
+  position: relative;
+  /* width: 30%; */
+  padding: 1em 1.5em;
+  margin: 2em auto;
+  color: black;
+  background: radial-gradient(
+    410px at 49.5% 99%,
+    rgb(250, 208, 196) 0%,
+    rgb(255, 209, 255) 99.5%
+  );
+}
+
+#debit-transaction:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 16px 16px 0;
+  border-style: solid;
+  border-color: #d4accb #fff;
 }
 
 #login {

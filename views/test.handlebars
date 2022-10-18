@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+{{!-- <div class="row justify-content-center">
   <div class="col-2 text-left transaction-form"><h3>Hi,
       {{user.username}}
       !
@@ -8,6 +8,8 @@
       <span>${{user.balance}}</span>
     </h4>
     <form class="transaction-form m-2">
+       <input type="hidden" name="current-user" value="{{user.username}}" />
+      <input type="hidden" name="current-balance" value="{{user.balance}}" />
       <div class="row">
         <div class="mb-3">
           <label for="recipient" class="form-label"></label>
@@ -32,39 +34,80 @@
         </div>
       </div>
     </form>
-
+ 
   </div>
-  <div class="col-8 text-center"><div class="container">
-    <div class="container">
-  <div class="row w-25 m-4">
-    <div class="col m-2" id="transaction-href">
-      Transactions
-    </div>
-    <div class="col m-2" id="chart-href">
-      Chart
-    </div>
-  </div>
+  <div class="col-8 text-center m-4"><div class="container">
+    {{#each user.Transactions }}
   <div class="row transaction-list m-4">
     <div class="col">
-      You paid James Sung $100
+      {{#if debit}}
+      You paid {{recipient}} ${{debit}}
+      {{else}}
+      You received from {{recipient}} ${{credit}}
+      {{/if}}
     </div>
     <div class="col">
-      on 10/16/22
-    </div></div>
-      <div class="row transaction-list m-4">
-    <div class="col">
-      You paid Andrew Hong $100
+      on {{format_date transaction_date}}
     </div>
-    <div class="col">
-      on 10/16/22
-    </div></div>
-      <div class="row transaction-list m-4">
-    <div class="col">
-      Bob paid you $100
     </div>
-    <div class="col">
-      on 10/16/22
-    </div></div>
+    {{/each}}
 </div>
 
 <script src="/js/transaction.js"></script>
+
+<div class="container">
+  <div class="row">
+    <div class="col"><form class="transaction-form m-2">
+      <h3>Hi,
+      {{user.username}}
+      !
+    </h3>
+    <h4>
+      <span>Balance:</span>
+      <span>${{user.balance}}</span>
+    </h4>
+       <input type="hidden" name="current-user" value="{{user.username}}" />
+      <input type="hidden" name="current-balance" value="{{user.balance}}" />
+      <div class="row">
+        <div class="mb-3">
+          <label for="recipient" class="form-label"></label>
+          <input
+            type="text"
+            class="form-control"
+            id="recipient"
+            placeholder="Transfer to"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="transfer-amount" class="form-label"></label>
+          <input
+            type="number"
+            class="form-control"
+            id="transfer-amount"
+            placeholder="Amount"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <button type="submit" class="btn btn-success w-100">Transfer</button>
+        </div>
+      </div>
+    </form></div>
+    <div class="col">  <div class="col-8 text-center m-4">
+    {{#each user.Transactions}}
+    <div class="m-4">
+      {{#if debit}}
+      <div id="debit-transaction">
+      You paid {{recipient}} ${{debit}} on
+      {{format_date transaction_date}}
+      </div>
+      {{else}}
+      <div id="credit-transaction">
+      {{recipient}} paid you ${{credit}} on
+      {{format_date transaction_date}}
+      </div>
+      {{/if}}
+    </div>
+    {{/each}}
+</div></div>
+  </div>
+</div> --}}
