@@ -1,11 +1,15 @@
+* {
+  font-family: "Poppins", sans-serif;
+  color: #444;
+}
+
 :root {
   --gradient-primary: linear-gradient(to top left, #39b385, #9be15d);
   --color-tertiary-darker: #fd424b;
-  --color-secondary-darker: #ffbb00;
 }
 
-#navbar {
-  text-align: right;
+.title {
+  text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
 }
 
 #navbar {
@@ -30,45 +34,60 @@
   background-image: var(--gradient-primary);
 }
 
-.login-signup-form {
+/* .login-signup-form {
   position: relative;
-}
+} */
 
-.login-signup-form::after {
-  display: block;
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  opacity: 0.7;
-  border-radius: 25px;
+.login-signup-form {
   background-image: var(--gradient-primary);
+  border-radius: 25px;
 }
 
 .transaction-form {
-  position: relative;
+  background: var(--gradient-primary);
+  border-radius: 25px;
 }
 
-.transaction-form::after {
-  display: block;
+#credit-transaction {
+  position: relative;
+  /* width: 30%; */
+  padding: 1em 1.5em;
+  margin: 2em auto;
+  color: black;
+  background: var(--gradient-primary);
+}
+
+#credit-transaction:before {
   content: "";
   position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  opacity: 0.7;
-  border-radius: 25px;
-  background-image: var(--gradient-primary);
+  top: 0;
+  right: 0;
+  border-width: 0 16px 16px 0;
+  border-style: solid;
+  border-color: #379f4e #fff;
 }
 
-.transaction-list {
-  background-image: var(--gradient-primary);
-  transform: scale(1.07, 1.05) skewX(-15deg);
+#debit-transaction {
+  position: relative;
+  /* width: 30%; */
+  padding: 1em 1.5em;
+  margin: 2em auto;
+  color: black;
+  background: radial-gradient(
+    410px at 49.5% 99%,
+    rgb(250, 208, 196) 0%,
+    rgb(255, 209, 255) 99.5%
+  );
+}
+
+#debit-transaction:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-width: 0 16px 16px 0;
+  border-style: solid;
+  border-color: #d4accb #fff;
 }
 
 #login {
@@ -139,41 +158,3 @@
   transform-origin: left;
   transform: scaleX(1);
 }
-
-/* #transaction-href {
-  background-color: var(--color-tertiary-darker);
-  border-radius: 25px;
-}
-
-#chart-href {
-  background-color: var(--color-secondary-darker);
-  border-radius: 25px;
-} */
-
-/* .signup-login-href {
-  border-radius: 25px;
-} */
-
-/* Hovering effects 1 */
-/* #login {
-  box-shadow: inset 0 0 0 0 #54b3d6;
-  color: #54b3d6;
-  margin: 0 -0.25rem;
-  padding: 0 0.25rem;
-  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-#login:hover {
-  box-shadow: inset 100px 0 0 0 #54b3d6;
-  color: white;
-} */
-
-/* Hover effect 2 requires webkit */
-/* #login {
-  background-image: linear-gradient(to right, #54b3d6, #54b3d6 50%, #000 50%);
-  background-size: 200% 100%;
-  background-position: -100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease-in-out;
-} */
