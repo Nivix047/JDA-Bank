@@ -1,4 +1,7 @@
-new Chart(document.getElementById("credit_debit"), {
+const Chart = require("chart.js")
+
+const ctx = document.getElementById("credit_debit");
+const myChart = new Chart(ctx, {
   type: "bar",
   data: {
     labels: ["${Transactions.transaction_date}"],

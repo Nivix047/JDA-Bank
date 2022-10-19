@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User, Transaction } = require("../models");
 const withAuth = require("../utils/auth");
-const charts = require("chart.js");
+// const Chart = require("chart.js");
 
 // Render login form
 router.get("/login", (req, res) => {
