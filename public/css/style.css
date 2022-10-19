@@ -8,6 +8,10 @@
   --color-tertiary-darker: #fd424b;
 }
 
+.title {
+  text-shadow: 0px 15px 5px rgba(0, 0, 0, 0.1);
+}
+
 #navbar {
   background-image: var(--gradient-primary);
 }
