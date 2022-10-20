@@ -161,3 +161,7 @@
 .cap {
   text-transform: capitalize;
 }
+
+.chart {
+  margin: 0 auto;
+}
