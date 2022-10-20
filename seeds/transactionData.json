@@ -2,43 +2,85 @@
   {
     "id": 1,
     "transaction_date": "2022-10-16 19:40:45",
-    "recipient": "Andrew",
-    "credit": 1,
-    "user_id": 6
+    "recipient": "Daniel",
+    "credit": 100,
+    "user_id": 1
   },
   {
     "id": 2,
     "transaction_date": "2022-10-16 19:40:45",
     "recipient": "Daniel",
-    "credit": 1,
-    "user_id": 5
+    "debit": 100,
+    "user_id": 1
   },
   {
     "id": 3,
     "transaction_date": "2022-10-16 19:40:45",
-    "recipient": "James",
-    "credit": 1,
-    "user_id": 4
+    "recipient": "Andrew",
+    "credit": 200,
+    "user_id": 2
   },
   {
     "id": 4,
     "transaction_date": "2022-10-16 19:40:45",
-    "recipient": "Mike",
-    "credit": 1,
-    "user_id": 3
+    "recipient": "Andrew",
+    "debit": 200,
+    "user_id": 2
   },
   {
     "id": 5,
     "transaction_date": "2022-10-16 19:40:45",
-    "recipient": "Charles",
-    "credit": 1,
-    "user_id": 2
+    "recipient": "James",
+    "credit": 300,
+    "user_id": 3
   },
   {
     "id": 6,
     "transaction_date": "2022-10-16 19:40:45",
-    "recipient": "Joe",
-    "credit": 1,
+    "recipient": "James",
+    "debit": 300,
+    "user_id": 3
+  },
+  {
+    "id": 7,
+    "transaction_date": "2022-10-16 19:40:45",
+    "recipient": "Daniel",
+    "credit": 100,
     "user_id": 1
+  },
+  {
+    "id": 8,
+    "transaction_date": "2022-10-16 19:40:45",
+    "recipient": "Daniel",
+    "debit": 100,
+    "user_id": 1
+  },
+  {
+    "id": 9,
+    "transaction_date": "2022-10-16 19:40:45",
+    "recipient": "Andrew",
+    "credit": 200,
+    "user_id": 2
+  },
+  {
+    "id": 10,
+    "transaction_date": "2022-10-16 19:40:45",
+    "recipient": "Andrew",
+    "debit": 200,
+    "user_id": 2
+  },
+  {
+    "id": 11,
+    "transaction_date": "2022-10-16 19:40:45",
+    "recipient": "James",
+    "credit": 300,
+    "user_id": 3
+  },
+  {
+    "id": 12,
+    "transaction_date": "2022-10-16 19:40:45",
+    "recipient": "James",
+    "debit": 300,
+    "user_id": 3
   }
 ]

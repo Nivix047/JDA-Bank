@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col">
       <form class="transaction-form p-4">
-        <h3>Hi,
+        <h3 class="cap">Hi,
           {{user.username}}
           !
         </h3>
@@ -46,14 +46,14 @@
             {{#if debit}}
               <div id="debit-transaction">
                 You paid
-                {{recipient}}
+                <span class="cap">{{recipient}}</span>
                 ${{debit}}
                 on
                 {{format_date transaction_date}}
               </div>
             {{else}}
               <div id="credit-transaction">
-                {{recipient}}
+                <span class="cap">{{recipient}}</span>
                 paid you ${{credit}}
                 on
                 {{format_date transaction_date}}

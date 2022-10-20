@@ -50,6 +50,11 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
+// Find all transactions for charts
+router.get("/transactions", withAuth, async (req, res) => {
+  res.render("chart", {});
+});
+
 // Render transaction with User balance not working
 // router.get("/", async (req, res) => {
 //   try {
