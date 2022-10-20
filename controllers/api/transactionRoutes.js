@@ -105,8 +105,7 @@ router.post("/:username", withAuth, async (req, res) => {
   }
 });
 
-// Find all transactions for charts
-router.get("/", async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   const dbRes = await Transaction.findAll({
     where: {
       user_id: req.session.user_id,

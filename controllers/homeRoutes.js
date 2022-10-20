@@ -33,8 +33,15 @@ router.get("/", withAuth, async (req, res) => {
         id: req.session.user_id,
       },
       // expecting an array of tables
-      include: [Transaction],
+      include: [
+        {
+          model: Transaction,
+        },
+      ],
+      order: [[{ model: Transaction }, "transaction_date", "DESC"]],
     });
+
+    // Post.findAll({ limit: 10, order: [["updatedAt", "DESC"]] });
 
     // Serialize data so the template can read it
     const user = userData.get({ plain: true });
@@ -48,6 +55,15 @@ router.get("/", withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+// Find all transactions for charts
+router.get("/transactions", withAuth, async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.session.user_id);
+    const user = userData.get({ plain: true });
+    res.render("chart", { user, logged_in: req.session.logged_in });
+  } catch (err) {}
 });
 
 // Render transaction with User balance not working

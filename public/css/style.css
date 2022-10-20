@@ -1,6 +1,5 @@
 * {
   font-family: "Poppins", sans-serif;
-  color: #444;
 }
 
 :root {
@@ -157,4 +156,12 @@
 .nav-item:hover::before {
   transform-origin: left;
   transform: scaleX(1);
+}
+
+.cap {
+  text-transform: capitalize;
+}
+
+.chart {
+  margin: 0 auto;
 }
