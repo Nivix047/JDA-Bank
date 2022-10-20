@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const { User, Transaction } = require("../models");
 const withAuth = require("../utils/auth");
-// const Chart = require("chart.js");
 
 // Render login form
 router.get("/login", (req, res) => {
@@ -41,8 +40,6 @@ router.get("/", withAuth, async (req, res) => {
       order: [[{ model: Transaction }, "transaction_date", "DESC"]],
     });
 
-    // Post.findAll({ limit: 10, order: [["updatedAt", "DESC"]] });
-
     // Serialize data so the template can read it
     const user = userData.get({ plain: true });
     console.log("----user + transaction----");
@@ -57,8 +54,8 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
-// Find all transactions for charts
-router.get("/transactions", withAuth, async (req, res) => {
+// Render chart
+router.get("/chart", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id);
     const user = userData.get({ plain: true });
@@ -66,26 +63,7 @@ router.get("/transactions", withAuth, async (req, res) => {
   } catch (err) {}
 });
 
-// Render transaction with User balance not working
-// router.get("/", async (req, res) => {
-//   try {
-//     const transactionData = await Transaction.findAll({
-//       where: {
-//         id: req.session.user_id,
-//       },
-//       include: [
-//         {
-//           model: [User],
-//         },
-//       ],
-//     });
-//     const transactions = transactionData.map((transaction) =>
-//       transaction.get({ plain: true })
-//     );
-//     // Pass serialized data and session flag into
-
 // Testing views
-
 router.get("/test", (req, res) => {
   res.render("test");
 });

@@ -1,3 +1,4 @@
+// Running balance logic
 const transactions = [
   {
     credit: null,
