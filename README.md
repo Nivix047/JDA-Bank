@@ -26,4 +26,4 @@ Here is a screenshot and link to the site:
 
 ![alt screenshot of website](./images/Screenshot%202022-09-22%20194848.png)
 
-[https://drive.google.com/file/d/1p6esJkqldaQjrSEjOVuJ1h_1s33Iyfd4/view](https://drive.google.com/file/d/1p6esJkqldaQjrSEjOVuJ1h_1s33Iyfd4/view)
+[https://jda-bank.herokuapp.com/login](https://jda-bank.herokuapp.com/login)
