@@ -21,10 +21,7 @@ Transaction.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // amount: {
-    //   type: DataTypes.DECIMAL,
-    //   allowNull: false,
-    // },
+
     credit: {
       type: DataTypes.DECIMAL,
       // allowNull: false,
@@ -33,21 +30,7 @@ Transaction.init(
       type: DataTypes.DECIMAL,
       // allowNull: false,
     },
-    // user_id: {
-    //   type: DataTypes.UUID,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
   },
-  // user_balance: {
-  //   type: DataTypes.DECIMAL,
-  //   references: {
-  //     model: 'user',
-  //     key: 'balance',
-  //   },
-  // },
-  // },
   {
     sequelize,
     timestamps: false,

@@ -9,6 +9,7 @@ const transactionFormHandler = async (event) => {
   const recipient = document.querySelector("#recipient").value.trim();
   const amount = document.querySelector("#transfer-amount").value.trim();
 
+  // Updates balance
   if (amount) {
     const balance = currentBalance - amount;
     const response = await fetch("api/transactions", {
@@ -25,8 +26,8 @@ const transactionFormHandler = async (event) => {
     }
   }
 
+  // Updates amount based on username
   if (recipient && amount) {
-    // Send a POST request to the API endpoint
     const response = await fetch(`api/transactions/${recipient}`, {
       method: "PUT",
       body: JSON.stringify({ amount }),
@@ -34,14 +35,14 @@ const transactionFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      // If successful, redirect the browser to the profile page
       document.location.replace("/");
     } else {
       alert("Failed to transfer.");
     }
   }
+
+  // Creates a debit transaction
   const debit = amount;
-  // Sends transaction
   const debitTran = await fetch("api/transactions", {
     method: "POST",
     body: JSON.stringify({ recipient, debit }),
@@ -54,7 +55,7 @@ const transactionFormHandler = async (event) => {
     alert("Failed to transfer.");
   }
 
-  // credit
+  // Creates a credit transaction based on username
   const credit = amount;
   const creditTran = await fetch(`api/transactions/${recipient}`, {
     method: "POST",
