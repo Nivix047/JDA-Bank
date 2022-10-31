@@ -12,29 +12,14 @@ const transactionFormHandler = async (event) => {
   // Updates balance
   if (amount) {
     const balance = currentBalance - amount;
-    const response = await fetch("api/transactions", {
-      method: "PUT",
-      body: JSON.stringify({ balance }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-      // If successful, redirect the browser to the profile page
-      // document.location.replace("/");
-    } else {
-      alert("Failed to transfer.");
-    }
-  }
-
-  // Updates amount based on username
-  if (recipient && amount) {
     const response = await fetch(`api/transactions/${recipient}`, {
       method: "PUT",
-      body: JSON.stringify({ amount }),
+      body: JSON.stringify({ balance, amount }),
       headers: { "Content-Type": "application/json" },
     });
-
+    console.log("test", response);
     if (response.ok) {
+      // If successful, redirect the browser to the profile page
       document.location.replace("/");
     } else {
       alert("Failed to transfer.");
