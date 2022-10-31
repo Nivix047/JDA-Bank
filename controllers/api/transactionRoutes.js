@@ -2,31 +2,6 @@ const router = require("express").Router();
 const { User, Transaction } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// Update balance of the sender
-// router.put("/", withAuth, async (req, res) => {
-//   try {
-//     const updateBalance = await User.update(
-//       {
-//         balance: req.body.balance,
-//       },
-//       {
-//         where: {
-//           id: req.session.user_id,
-//         },
-//       }
-//     );
-
-//     if (!updateBalance) {
-//       res.status(404).json({ message: "No Account found with this id!" });
-//       return;
-//     }
-
-//     res.status(200).json({ message: "Transfer completed!" });
-//   } catch (err) {
-//     res.status(400).json(err.message);
-//   }
-// });
-
 // Update recipient's balance
 router.put("/:username", withAuth, async (req, res) => {
   try {
