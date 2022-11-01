@@ -2,31 +2,6 @@ const router = require("express").Router();
 const { User, Transaction } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// Update balance of the sender
-router.put("/", withAuth, async (req, res) => {
-  try {
-    const updateBalance = await User.update(
-      {
-        balance: req.body.balance,
-      },
-      {
-        where: {
-          id: req.session.user_id,
-        },
-      }
-    );
-
-    if (!updateBalance) {
-      res.status(404).json({ message: "No Account found with this id!" });
-      return;
-    }
-
-    res.status(200).json({ message: "Transfer completed!" });
-  } catch (err) {
-    res.status(400).json(err.message);
-  }
-});
-
 // Update recipient's balance
 router.put("/:username", withAuth, async (req, res) => {
   try {
@@ -41,7 +16,7 @@ router.put("/:username", withAuth, async (req, res) => {
     // Had to parseInt because of JSON Stringfication
     let balance = parseInt(req.body.amount) + parseInt(recipient.balance);
 
-    const updateBalance = await User.update(
+    const updateBalanceRecipient = await User.update(
       {
         balance: balance,
       },
@@ -52,12 +27,24 @@ router.put("/:username", withAuth, async (req, res) => {
       }
     );
 
-    if (!updateBalance) {
-      res.status(404).json({ message: "No Account found with this id!" });
-      return;
+    const updateBalanceUser = await User.update(
+      {
+        balance: req.body.balance,
+      },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    );
+
+    if (!updateBalanceRecipient) {
+      return res
+        .status(404)
+        .json({ message: "No Account found with this id!" });
     }
 
-    res.status(200).json(updateBalance);
+    res.status(200).json({ updateBalanceRecipient, updateBalanceUser });
   } catch (err) {
     res.status(400).json(err.message);
   }
