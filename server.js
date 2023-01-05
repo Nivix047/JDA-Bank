@@ -40,6 +40,8 @@ app.use(routes);
 // });
 
 // testing database wipeout
-sequelize.sync({ alter: true, force: true }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
-});
+// sequelize.sync({ alter: true, force: true }).then(() => {
+//   app.listen(PORT, () => console.log("Now listening"));
+// });
+
+app.listen(PORT, () => console.log("Now listening"));
